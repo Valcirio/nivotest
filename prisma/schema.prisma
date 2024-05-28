@@ -1,0 +1,117 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./db"
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model Popular_Spotify_Songs {
+  track_name           String?
+  artist_s__name       String? @map("artist(s)_name")
+  artist_count         Int?
+  released_year        Int?
+  released_month       Int?
+  released_day         Int?
+  in_spotify_playlists Int?
+  in_spotify_charts    Int?
+  streams              Int?
+  in_apple_playlists   Int?
+  in_apple_charts      Int?
+  in_deezer_playlists  String?
+  in_deezer_charts     Int?
+  in_shazam_charts     String?
+  bpm                  Int?
+  key                  String?
+  mode                 String?
+  danceability__       Int?    @map("danceability_%")
+  valence__            Int?    @map("valence_%")
+  energy__             Int?    @map("energy_%")
+  acousticness__       Int?    @map("acousticness_%")
+  instrumentalness__   Int?    @map("instrumentalness_%")
+  liveness__           Int?    @map("liveness_%")
+  speechiness__        Int?    @map("speechiness_%")
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model netflix_titles {
+  show_id      String  @id @unique
+  type         String?
+  title        String?
+  director     String?
+  cast         String?
+  country      String?
+  date_added   String?
+  release_year Int?
+  rating       String?
+  duration     String?
+  listed_in    String?
+  description  String?
+  Column13     String?
+  Column14     String?
+  Column15     String?
+  Column16     String?
+  Column17     String?
+  Column18     String?
+  Column19     String?
+  Column20     String?
+  Column21     String?
+  Column22     String?
+  Column23     String?
+  Column24     String?
+  Column25     String?
+  Column26     String?
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model summer_products_with_rating_and_performance {
+  title                        String?
+  title_orig                   String?
+  price                        Int?
+  retail_price                 Int?
+  currency_buyer               String?
+  units_sold                   Int?
+  uses_ad_boosts               Int?
+  rating                       Float?
+  rating_count                 Int?
+  rating_five_count            Int?
+  rating_four_count            Int?
+  rating_three_count           Int?
+  rating_two_count             Int?
+  rating_one_count             Int?
+  badges_count                 Int?
+  badge_local_product          Int?
+  badge_product_quality        Int?
+  badge_fast_shipping          Int?
+  tags                         String?
+  product_color                String?
+  product_variation_size_id    String?
+  product_variation_inventory  Int?
+  shipping_option_name         String?
+  shipping_option_price        Int?
+  shipping_is_express          Int?
+  countries_shipped_to         Int?
+  inventory_total              Int?
+  has_urgency_banner           Int?
+  urgency_text                 String?
+  origin_country               String?
+  merchant_title               String?
+  merchant_name                String?
+  merchant_info_subtitle       String?
+  merchant_rating_count        Int?
+  merchant_rating              Float?
+  merchant_id                  String?
+  merchant_has_profile_picture Int?
+  merchant_profile_picture     String?
+  product_url                  String?
+  product_picture              String?
+  product_id                   String?
+  theme                        String?
+  crawl_month                  String?
+
+  @@ignore
+}
