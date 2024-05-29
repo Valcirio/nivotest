@@ -1,23 +1,45 @@
 import BarGraph from '@/components/barGraph'
 import PieGraph from '@/components/pieGraph';
-import { netflixCategoriesProps } from '@/types/netflix';
+import { netflixCategoriesProps, netflixProps } from '@/types/netflix';
 import axios from 'axios'
 import Image from 'next/image';
 
+const dataFilmByCountry: netflixProps[] = [
+  { countryFilm: 'Canada', countFilms: 181 },
+  { countryFilm: 'Egypt', countFilms: 106 },
+  { countryFilm: 'France', countFilms: 124 },
+  { countryFilm: 'India', countFilms: 972 },
+  { countryFilm: 'Japan', countFilms: 245 },
+  { countryFilm: 'Mexico', countFilms: 110 },
+  { countryFilm: 'South Korea', countFilms: 200 },
+  { countryFilm: 'Spain', countFilms: 145 },
+  { countryFilm: 'Turkey', countFilms: 105 },
+  { countryFilm: 'United Kingdom', countFilms: 419 },
+  { countryFilm: 'United States', countFilms: 2819 }
+]
+
+const dataFilmByCategories: netflixCategoriesProps[] = [
+{ categorie: 'Comedies', countFilms: 1092 },
+{ categorie: 'Dramas', countFilms: 1427 },
+{ categorie: 'TV Shows', countFilms: 719 },
+{ categorie: 'International Movies', countFilms: 817 }
+]
+
 export default async function Home() {
-  const dataFilmByCountry = await axios.get('http://127.0.0.1:3000/api/netflix')
+  //const dataFilmByCountry = await axios.get('http://127.0.0.1:3000/api/netflix')
 
-  const slugKey = ['Comedies','Dramas','TV Shows','International Movies']
+  //const slugKey = ['Comedies','Dramas','TV Shows','International Movies']
 
-  const Comedies = await axios.get(`http://127.0.0.1:3000/api/netflix/categories?slug=${slugKey[0]}`)
-  const Dramas = await axios.get(`http://127.0.0.1:3000/api/netflix/categories?slug=${slugKey[1]}`)
-  const TVShows = await axios.get(`http://127.0.0.1:3000/api/netflix/categories?slug=${slugKey[2]}`)
-  const IntMovies = await axios.get(`http://127.0.0.1:3000/api/netflix/categories?slug=${slugKey[3]}`)
-  let dataFilmByCategories: netflixCategoriesProps[] = []
-  dataFilmByCategories.push(Comedies.data.data)
-  dataFilmByCategories.push(Dramas.data.data)
-  dataFilmByCategories.push(TVShows.data.data)
-  dataFilmByCategories.push(IntMovies.data.data)
+  //const Comedies = await axios.get(`http://127.0.0.1:3000/api/netflix/categories?slug=${slugKey[0]}`)
+  //const Dramas = await axios.get(`http://127.0.0.1:3000/api/netflix/categories?slug=${slugKey[1]}`)
+  //const TVShows = await axios.get(`http://127.0.0.1:3000/api/netflix/categories?slug=${slugKey[2]}`)
+  //const IntMovies = await axios.get(`http://127.0.0.1:3000/api/netflix/categories?slug=${slugKey[3]}`)
+  //let dataFilmByCategories: netflixCategoriesProps[] = []
+
+  //dataFilmByCategories.push(Comedies.data.data)
+  //dataFilmByCategories.push(Dramas.data.data)
+  //dataFilmByCategories.push(TVShows.data.data)
+  //dataFilmByCategories.push(IntMovies.data.data)
 
     // slugKey.map(async (slug)=>{
     //   await axios.get(`http://localhost:3000/api/netflix/categories?slug=${slug}`)
@@ -33,7 +55,8 @@ export default async function Home() {
 
         <div className='w-fit h-auto border-2 border-[#444444/25] rounded-md shadow-xl flex flex-col items-center bg-white/25'>
           <p className='pt-2 text-sm'>Filmes e Séries em relação ao País</p>
-          <BarGraph data={dataFilmByCountry.data.data}/>
+          {/* <BarGraph data={dataFilmByCountry.data.data}/> */}
+          <BarGraph data={dataFilmByCountry}/>
         </div>
 
         <div className='w-fit h-auto border-2 border-[#444444/25] rounded-md shadow-xl flex flex-col items-center bg-white/25'>
