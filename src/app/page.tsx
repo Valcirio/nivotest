@@ -5,14 +5,14 @@ import axios from 'axios'
 import Image from 'next/image';
 
 export default async function Home() {
-  const dataFilmByCountry = await axios.get('http://localhost:3000/api/netflix')
+  const dataFilmByCountry = await axios.get('http://127.0.0.1:3000/api/netflix')
 
   const slugKey = ['Comedies','Dramas','TV Shows','International Movies']
 
-  const Comedies = await axios.get(`http://localhost:3000/api/netflix/categories?slug=${slugKey[0]}`)
-  const Dramas = await axios.get(`http://localhost:3000/api/netflix/categories?slug=${slugKey[1]}`)
-  const TVShows = await axios.get(`http://localhost:3000/api/netflix/categories?slug=${slugKey[2]}`)
-  const IntMovies = await axios.get(`http://localhost:3000/api/netflix/categories?slug=${slugKey[3]}`)
+  const Comedies = await axios.get(`http://127.0.0.1:3000/api/netflix/categories?slug=${slugKey[0]}`)
+  const Dramas = await axios.get(`http://127.0.0.1:3000/api/netflix/categories?slug=${slugKey[1]}`)
+  const TVShows = await axios.get(`http://127.0.0.1:3000/api/netflix/categories?slug=${slugKey[2]}`)
+  const IntMovies = await axios.get(`http://127.0.0.1:3000/api/netflix/categories?slug=${slugKey[3]}`)
   let dataFilmByCategories: netflixCategoriesProps[] = []
   dataFilmByCategories.push(Comedies.data.data)
   dataFilmByCategories.push(Dramas.data.data)
